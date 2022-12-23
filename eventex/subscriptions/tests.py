@@ -57,7 +57,6 @@ class SubscribePostTest(TestCase):
 
         self.assertEqual(expect, email.subject)
 
-
     def test_subscription_email_from(self):
         email = mail.outbox[0]
         expect = 'contato@eventex.com.br'
@@ -103,6 +102,6 @@ class SubscribeSuccessMessage(TestCase):
     def test_message(self):
         data = dict(name='Tiago Chaves', cpf='0123456789', 
                     email='tiago@teste.com', phone='21-9786-0000')
-                    
+
         response = self.client.post('/inscricao/', data, follow=True)
         self.assertContains(response, 'Inscrição realizada com sucesso')
